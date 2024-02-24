@@ -31,36 +31,67 @@ python manage.py migrate --run-syncdb
 python manage.py runserver
 ```
 
-## Getting mock data
-- python manage.py create_users
-- python manage.py create_roles
-- python manage.py create_teams
-- python manage.py create_projects
-- python manage.py create_tasks
-- python manage.py create_budgets
+## Note: To access admin portal:
+      - localhost:8000/admin
+      - username: Ruthvik	
+      - password: 123
 
-## Getting app password 
-- Go To 'Manage Your Google Account' 
-- Go to security tab 
-- Then you will find a section 'How you sign in to Google'
-- If 2-factor authentication is off, turn it on
-- Then click on 2-Steps Verification and scroll to bottom 
-- There you will find 'App Passwords'
-- click on that and add an app password
-- There in select app, you have to select Mail and in select device choice your device
-- Once you generate a password, you can create a .env file in project's root directory
+## --> DataBase:
 
-```
-EMAIL_HOST_USER="YOUR_GMAIL_ID"
-EMAIL_HOST_PASSWORD="GENERATED_APP_PASSWORD"
-```
+1. Install Postgres database and a database inside the server.
+2. Create .env-local file and add:
 
-## Getting up redis for celery queue
-- https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+"DJANGO_SECRET_KEY="django-insecure-mbw2ns6tzht7pdf9be0_z_m&(o+yyinhy%40ou2$rgk6in@*)%"
 
-## Running celery
+POSTGRESS_NAME="socialmedia"
+POSTGRESS_USER="postgres"
+POSTGRESS_PASSWORD="vijaya"
+POSTGRESS_HOST="localhost"
+POSTGRESS_PORT=5432
 
-celery -A config worker -E --concurrency=4 -l info
+EMAIL_HOST_USER=""
+EMAIL_HOST_PASSWORD=""
+
+## --> Pages:
+	1. Login Page
+	2. Signup Page
+	3. Dashboard Page
+		- This page shows the analytics data like charts, tables, bar graphs
+	4. List of Scheduled Post Page
+		- A table showing all scheduled posts
+		- A buttom saying "Schedule Post"
+	5. Schedule Post Page
+		- This is a form
+		- This page will allow user to add post content, time to be posted, allow the platform list
+	
+## --> Models:
+	1. User
+	2. PlatformAuth
+		- user
+		- platform
+		- credentials
+	3. SchedulePost
+		- post_title
+		- user
+		- platform
+		- created_at
+		- post_content
+		- image
+	4. Platform
+            - choices
+
+## --> Apps:
+	1. user
+	2. analytics
+	3. schedule
+
+## --> View:
+	1. AnalyticsView - 
+		- send mock data to frontend to show charts and data in table for posts		
+	2. SchedulePostCreateView
+	3. SchedulePostListView
+	4. SchedulePostDetailView
+
 
 ## References 
 - https://appseed.us/
