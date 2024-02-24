@@ -41,6 +41,7 @@ python manage.py runserver
 1. Install Postgres database and a database inside the server.
 2. Create .env-local file and add:
 
+```
 "DJANGO_SECRET_KEY="django-insecure-mbw2ns6tzht7pdf9be0_z_m&(o+yyinhy%40ou2$rgk6in@*)%"
 
 POSTGRESS_NAME="socialmedia"
@@ -51,6 +52,7 @@ POSTGRESS_PORT=5432
 
 EMAIL_HOST_USER=""
 EMAIL_HOST_PASSWORD=""
+```
 
 ## --> Pages:
 	1. Login Page
