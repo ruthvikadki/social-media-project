@@ -1,0 +1,56 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block breadcrumbs %}{% endblock breadcrumbs %}
+
+{% block content %}
+
+<a href="{% url 'schedule:schedule_create' %}" class="btn btn-primary">+ Add Post</a>
+    
+<div class="row">
+    <div class="col-xl-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Schedule Posts</h5>
+            </div>
+            <div class="card-block table-border-style">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">S.no</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Platform</th>
+                                <th scope="col">Content</th>
+                                <th scope="col">Schedule Time</th>
+                                <th scope="col">Created on</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in schedule_post %}
+                            <tr class="unread">
+                                <td>{{forloop.counter}}</td>
+                                <td>{{i.post_title}}</td>
+                                <td>
+                                    <span class="label theme-bg2 text-white f-12">{{i.get_platform_display}}</span>
+                                </td>
+                                <td>{{ i.post_content|truncatechars:20 }}</td>
+                                <td>{{ i.schedule_time|date:"d-m-Y H:i" }}</td>
+                                <td>
+                                    <span class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>{{i.created_at}}</span>
+                                </td>
+                                <td>
+                                    <a href="{% url 'schedule:schedule_detail' i.id %}" class="btn btn-info">View</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
