@@ -1,5 +1,23 @@
 # Project Management
 
+##  DataBase:
+
+1. Install Postgres database and a database inside the server.
+2. Create .env-local file and add:
+
+```
+"DJANGO_SECRET_KEY="django-insecure-mbw2ns6tzht7pdf9be0_z_m&(o+yyinhy%40ou2$rgk6in@*)%"
+
+POSTGRESS_NAME="socialmedia"
+POSTGRESS_USER="postgres"
+POSTGRESS_PASSWORD="vijaya"
+POSTGRESS_HOST="localhost"
+POSTGRESS_PORT=5432
+
+EMAIL_HOST_USER=""
+EMAIL_HOST_PASSWORD=""
+```
+
 ## Setup
 
 - Create virtual environment using
@@ -33,28 +51,8 @@ python manage.py runserver
 
 ## Note: To access admin portal:
       - localhost:8000/admin
-      - username: Ruthvik	
-      - password: 123
 
-## --> DataBase:
-
-1. Install Postgres database and a database inside the server.
-2. Create .env-local file and add:
-
-```
-"DJANGO_SECRET_KEY="django-insecure-mbw2ns6tzht7pdf9be0_z_m&(o+yyinhy%40ou2$rgk6in@*)%"
-
-POSTGRESS_NAME="socialmedia"
-POSTGRESS_USER="postgres"
-POSTGRESS_PASSWORD="vijaya"
-POSTGRESS_HOST="localhost"
-POSTGRESS_PORT=5432
-
-EMAIL_HOST_USER=""
-EMAIL_HOST_PASSWORD=""
-```
-
-## --> Pages:
+## Pages:
 	1. Login Page
 	2. Signup Page
 	3. Dashboard Page
@@ -66,7 +64,7 @@ EMAIL_HOST_PASSWORD=""
 		- This is a form
 		- This page will allow user to add post content, time to be posted, allow the platform list
 	
-## --> Models:
+## Models:
 	1. User
 	2. PlatformAuth
 		- user
@@ -82,18 +80,10 @@ EMAIL_HOST_PASSWORD=""
 	4. Platform
             - choices
 
-## --> Apps:
+## Apps:
 	1. user
 	2. analytics
 	3. schedule
-
-## --> View:
-	1. AnalyticsView - 
-		- send mock data to frontend to show charts and data in table for posts		
-	2. SchedulePostCreateView
-	3. SchedulePostListView
-	4. SchedulePostDetailView
-
 
 ## References 
 - https://appseed.us/
